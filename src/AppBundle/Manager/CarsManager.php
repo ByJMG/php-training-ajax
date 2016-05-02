@@ -9,6 +9,8 @@ use Symfony\Component\Serializer\Normalizer\PropertyNormalizer;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Finder\Finder;
 use AppBundle\Entity\Cars;
+use Symfony\Component\Filesystem\Filesystem;
+
 class CarsManager{
 
   private $jsonFile;
@@ -67,6 +69,47 @@ class CarsManager{
       return false;
     }
 
+  }
+
+  public function saveCarsToJson($cars){
+    $encoders = array(new JsonEncoder());
+    $normalizers = array(new ObjectNormalizer());
+
+    $serializer = new Serializer($normalizers, $encoders);
+
+    $carsJson = $serializer->serialize($cars, 'json');
+
+    $fs = new Filesystem();
+    if ($fs->exists($this->jsonFile)) {
+        $fs->dumpFile($this->jsonFile, $carsJson);
+
+        return true;
+    } else {
+        return false;
+    }
+  }
+
+  public function removeCar($id){
+    $cars = $this->getAllCars();
+    $originalCarsSize = count($cars);
+
+    $newCars = [];
+
+    foreach($cars as $c){
+      if($c->getId() != $id){
+        $newCars[] = $c;
+      }
+    }
+
+    if(count($newCars) === $originalCarsSize){
+      return false;
+    }else{
+
+
+
+
+      return $newCars;
+    }
   }
 
   public function getAllCarsJson(){

@@ -29,11 +29,15 @@ class MicroKernel extends Kernel
 
     protected function configureContainer(ContainerBuilder $c, LoaderInterface $loader)
     {
+
         $c->loadFromExtension('framework', ['secret' => 'ySXAZWsUi2bYGdPMknfZ8LaXPwAT1CDa']);
 
         // register services
+        $jsonPathFile = $c->getParameter('kernel.root_dir').'/../web/data/cars.json';
+        $c->setParameter('jsonPathFile', $jsonPathFile);
         $carsManagerService = $c->register('app.cars_manager', 'AppBundle\\Manager\\CarsManager');
-        $carsManagerService->setArguments([$c->getParameter('kernel.root_dir').'/../web/data/cars.json']);
+
+        $carsManagerService->setArguments([$jsonPathFile]);
     }
 
 }

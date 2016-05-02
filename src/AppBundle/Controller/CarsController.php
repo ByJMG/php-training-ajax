@@ -26,7 +26,7 @@ class CarsController extends Controller
     public function loadCarsFixturesAction(Request $request)
     {
         $message = '';
-        $jsonFile = $this->getJsonFilePath();
+        $jsonFile = $this->getParameter('jsonPathFile');
         $carFixtures = new LoadCarsData();
 
         if ($carFixtures->load($jsonFile)) {
@@ -47,11 +47,7 @@ class CarsController extends Controller
         $carsManager = $this->get('app.cars_manager');
         $jsonData = $carsManager->getAllCarsJson();
 
-        $response = new Response();
-        $response->setContent($jsonData);
-        $response->headers->set('Content-Type', 'application/json');
-
-        return $response;
+        return $this->buildJsonResponse($jsonData);
     }
 
     /**
@@ -66,13 +62,32 @@ class CarsController extends Controller
        if($car === false){
          return $this->returnErrorMessage('Car not found',404);
        }else{
-         $response = new Response();
-         $response->setContent($car);
-         $response->headers->set('Content-Type', 'application/json');
-
-         return $response;
+         return $this->buildJsonResponse($car);
        }
+   }
 
+   /**
+   * @Route("/cars/delete/{id}", name="app_cars_car_delete")
+   * @Method({"GET"})
+   */
+  public function deleteCarAction($id)
+  {
+      $carsManager = $this->get('app.cars_manager');;
+      $car = $carsManager->deleteCarJson($id);
+
+      if($car === false){
+        return $this->returnErrorMessage('Car not found',404);
+      }else{
+        return $this->buildJsonResponse($car);
+      }
+  }
+
+   private function buildJsonResponse($message, $status){
+     $response = new Response();
+     $response->setContent($car);
+     $response->headers->set('Content-Type', 'application/json');
+
+     return $response;
    }
 
 
