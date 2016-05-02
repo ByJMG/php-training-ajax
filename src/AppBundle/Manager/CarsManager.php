@@ -89,7 +89,14 @@ class CarsManager{
     }
   }
 
-  public function removeCar($id){
+  public function addCar(Cars $car){
+    $cars = $this->getAllCars();
+    $cars[] = $car;
+    return $this->saveCarsToJson($cars);
+  }
+
+
+  public function deleteCar($id){
     $cars = $this->getAllCars();
     $originalCarsSize = count($cars);
 
@@ -104,11 +111,11 @@ class CarsManager{
     if(count($newCars) === $originalCarsSize){
       return false;
     }else{
-
-
-
-
-      return $newCars;
+      if($this->saveCarsToJson($newCars)){
+        return $newCars;
+      }else{
+        return false;
+      }
     }
   }
 
