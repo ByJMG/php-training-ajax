@@ -1,4 +1,4 @@
-Ajax
+Ajax & jQuery
 =============
 # Introduction
 Quand vous visitez un site, en général, la page se charge et quand vous avez besoin d'avoir
