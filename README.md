@@ -25,9 +25,9 @@ Je vous invite à suivre ce petit [cours](https://openclassrooms.com/courses/un-
 # Activité
 Dans cette activité on va intéragir avec du contenu sans recharger la page.
 
-Pour cela je vous ai mis à disposition une mini app qui va gérer la partie serveur. Votre page AJAX va intéragir avec la mini app à partir d'adresse URL.
+Pour cela je vous ai mis à disposition une mini API qui va gérer la partie serveur. Votre page AJAX va intéragir avec la mini API à partir d'adresse URL.
 
-Cette mini app a été écrite pour loueur de véhicules afin mettre à jour sa base de données de véhicules. Chaque voiture possède les propriétés suivantes :
+Cette mini API a été écrite pour loueur de véhicules afin mettre à jour sa base de données de véhicules. Chaque voiture possède les propriétés suivantes :
 
 * *model* le nom du modèle
 * *make* la marque
@@ -38,7 +38,7 @@ Cette mini app a été écrite pour loueur de véhicules afin mettre à jour sa 
 
 ## Installation
 
-Afin d'utiliser la mini app il faut l'installer.
+Afin d'utiliser la mini API il faut l'installer.
 
 Tout d'abord, vous devez cloner ce repo.
 
@@ -48,7 +48,7 @@ git clone https://github.com/SimplonReunion/initiation-ajax-jquery.git voitures-
 
 Cette application étant écrite en PHP, il faut installer les librairies à l'aide de gestionnaire de dépendances **composer**. Il faut donc installer composer avant d'([installer composer](http://symfony.com/doc/current/cookbook/composer.html) les librairies.
 
-Une fois composer installé, dans le terminal, rendez-vous dans le répertoire de la mini app puis tapez :
+Une fois composer installé, dans le terminal, rendez-vous dans le répertoire de la mini API puis tapez :
 
 ```
 composer update
@@ -56,7 +56,7 @@ composer update
 
 Cela va copier les librairies PHP nécessaires sur votre ordinateur dans le répertoire *vendor*.
 
-Une fois l'installation terminée, nous allons lancer un petit serveur intégré. Toujours dans le répertoire de l'app vous allez rentrer la commande suivante :
+Une fois l'installation terminée, nous allons lancer un petit serveur intégré. Toujours dans le répertoire de l'API vous allez rentrer la commande suivante :
 
 ```
 php bin/console server:start
@@ -73,11 +73,11 @@ php bin/console server:stop
 
 ## AJAX
 
-L'installation de la mini app est terminée, elle fonctionne, nous allons maintenant rentrer dans le vif du sujet.
+L'installation de la mini API est terminée, elle fonctionne, nous allons maintenant rentrer dans le vif du sujet.
 
 ### Espace de travail
 
-Sur votre ordinateur, créez un dossier que vous appellerez *ajax-location* (créez où vous voulez, sauf dans le répertoire de la mini app). Ce sera dans ce dossier où vous allez mettre votre travail.
+Sur votre ordinateur, créez un dossier que vous appellerez *ajax-location* (créez où vous voulez, sauf dans le répertoire de la mini API). Ce sera dans ce dossier où vous allez mettre votre travail.
 
 Dans ce dossier *ajax-location* vous devez créer un fichier HTML. Tout votre travail se trouvera dans ce fichier.
 
@@ -102,7 +102,7 @@ Imaginons qu'une voiture n'existe plus, il va falloir la supprimer de la liste.
 
 Vous aller créer un bouton, se nommant *supprimer*, sur chaque ligne de la liste de voiture. En cliquant sur ce bouton, l'utilisateur supprimera la voiture qui n'existe plus.
 
-Pour supprimer une voiture via notre mini app c'est simple. Il suffit aller sur cette URL avec le bon **id** http://127.0.0.1:8000/cars/delete/**id**. **Attention, vous devez remplacer le mot *id* par la bonne valeur correspondante !**.
+Pour supprimer une voiture via notre mini API c'est simple. Il suffit aller sur cette URL avec le bon **id** http://127.0.0.1:8000/cars/delete/**id**. **Attention, vous devez remplacer le mot *id* par la bonne valeur correspondante !**.
 
 Plus haut, je vous ai expliqué que l'id permet de sélectionner une voiture sans ambigüité. Et bien c'est utile en suppression.
 
@@ -117,3 +117,6 @@ Créer un formulaire votre page HTML. ce formulaire contiendra les champs suivan
 * Une checkbox qui se nomme *available*, pour si la voiture est disponible
 
 Ce formulaire enverra le résultat en AJAX à l'url http://localhost/voitures-api/web/cars en utilisant la méthode *POST*.
+
+# Pour aller plus loin
+jQuery nous simplifie la vie avec AJAX mais pour intéragir avec les API il y a mieux. Par exemple, AngularJS.
