@@ -19,8 +19,12 @@ class CarsManager{
     $this->jsonFile = $jsonFilePath;
   }
 
+  /**
+   * Get all cars
+   * @return Array of entities
+   */
   public function getAllCars(){
-    //Serialize the cars object
+
     $encoders = array(new JsonEncoder());
 
     $normalizers = array(new PropertyNormalizer(), new ArrayDenormalizer());
@@ -35,6 +39,11 @@ class CarsManager{
 
   }
 
+  /**
+   * Get a car according to the id
+   * @param  string $id uuid of the car
+   * @return Car|false
+   */
   public function getCar($id){
     $cars = $this->getAllCars();
 
@@ -53,7 +62,11 @@ class CarsManager{
       return $car;
     }
   }
-
+  /**
+   * Get a car in json format
+   * @param  string $id uuid of the car
+   * @return JSON|false
+   */
   public function getCarJson($id){
     $car = $this->getCar($id);
     if($car !== false){
@@ -71,6 +84,11 @@ class CarsManager{
 
   }
 
+/**
+ *
+ * @param  array $cars array of cars
+ * @return Boolean  return true if save succeed, false otherwise
+ */
   public function saveCarsToJson($cars){
     $encoders = array(new JsonEncoder());
     $normalizers = array(new ObjectNormalizer());
@@ -89,13 +107,21 @@ class CarsManager{
     }
   }
 
+/**
+ * Add a single car
+ * @param Cars $car
+ */
   public function addCar(Cars $car){
     $cars = $this->getAllCars();
     $cars[] = $car;
     return $this->saveCarsToJson($cars);
   }
 
-
+/**
+ * Delete a car
+ * @param  string $id UUID of the car
+ * @return array|false  return the new list of cars when delete succeed or false otherwise
+ */
   public function deleteCar($id){
     $cars = $this->getAllCars();
     $originalCarsSize = count($cars);
@@ -119,6 +145,10 @@ class CarsManager{
     }
   }
 
+/**
+ * Read the json file
+ * @return string
+ */
   public function getAllCarsJson(){
     return file_get_contents($this->jsonFile);
   }

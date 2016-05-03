@@ -33,11 +33,7 @@ class MicroKernel extends Kernel
         $c->loadFromExtension('framework', ['secret' => 'ySXAZWsUi2bYGdPMknfZ8LaXPwAT1CDa']);
 
         // register services
-        $jsonPathFile = $c->getParameter('kernel.root_dir').'/../web/data/cars.json';
-        $c->setParameter('jsonPathFile', $jsonPathFile);
-        $carsManagerService = $c->register('app.cars_manager', 'AppBundle\\Manager\\CarsManager');
-
-        $carsManagerService->setArguments([$jsonPathFile]);
+        $loader->load(__DIR__.'/config/services.yml');
     }
 
 }

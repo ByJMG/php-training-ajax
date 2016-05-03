@@ -89,13 +89,13 @@ class CarsController extends Controller
       ->setAvailable($available)
       ->setColor($color)
       ;
-      
+
       $carsManager = $this->get('app.cars_manager');;
 
       if($carsManager->addCar($car) === false){
         return $this->returnErrorMessage('Failed to save',404);
       }else{
-        return $this->buildJsonResponse("The car {$car->getId()} has been added");
+        return $this->buildJsonResponse(["success"=>"The car {$car->getId()} has been added"]);
       }
   }
 
@@ -117,6 +117,12 @@ class CarsController extends Controller
       }
   }
 
+/**
+ * Build a JsonResponse. We could use JSONReponse but $message could be a JSON too
+ * @param  string  $message [description]
+ * @param  integer $status  [description]
+ * @return Response           [description]
+ */
    private function buildJsonResponse($message, $status = 200){
      $response = new Response();
      $response->setContent($message);
@@ -125,7 +131,12 @@ class CarsController extends Controller
      return $response;
    }
 
-
+   /**
+    * Return error message
+    * @param  [type]  $message  [description]
+    * @param  integer $codeHTTP [description]
+    * @return [type]            [description]
+    */
    private function returnErrorMessage($message, $codeHTTP = 404){
      $responseError = ["error"=>$message];
      return new JsonResponse($responseError,$codeHTTP);

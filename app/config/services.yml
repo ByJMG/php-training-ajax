@@ -4,6 +4,9 @@ parameters:
 #    parameter_name: value
 
 services:
+    app.cars_manager:
+        class: AppBundle\Manager\CarsManager
+        arguments: ["%kernel.root_dir%/../web/data/cars.json"]
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
