@@ -43,7 +43,7 @@ Afin d'utiliser la mini app il faut l'installer.
 Tout d'abord, vous devez cloner ce repo.
 
 ```
-git clone <lien du repo> voitures-api
+git clone https://github.com/SimplonReunion/initiation-ajax-jquery.git voitures-api
 ```
 
 Cette application étant écrite en PHP, il faut installer les librairies à l'aide de gestionnaire de dépendances **composer**. Il faut donc installer composer avant d'([installer composer](http://symfony.com/doc/current/cookbook/composer.html) les librairies.
