@@ -25,7 +25,7 @@ Je vous invite à suivre ce petit [cours](https://openclassrooms.com/courses/un-
 # Activité
 Dans cette activité on va intéragir avec du contenu sans recharger la page.
 
-Pour cela je vous ai mis à disposition une mini app qui va gérer la partie serveur. Votre page AJAX va intéragir avec la mini app.
+Pour cela je vous ai mis à disposition une mini app qui va gérer la partie serveur. Votre page AJAX va intéragir avec la mini app à partir d'adresse URL.
 
 Cette mini app a été écrite pour loueur de véhicules afin mettre à jour sa base de données de véhicules. Chaque voiture possède les propriétés suivantes :
 
