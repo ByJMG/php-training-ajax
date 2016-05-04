@@ -104,7 +104,7 @@ Imaginons qu'une voiture n'existe plus, il va falloir la supprimer de la liste.
 
 Vous aller créer un bouton, se nommant *supprimer*, sur chaque ligne de la liste de voiture. En cliquant sur ce bouton, l'utilisateur supprimera la voiture qui n'existe plus.
 
-Pour supprimer une voiture via notre mini API c'est simple. Il suffit aller sur cette URL avec le bon **id** http://127.0.0.1:8000/cars/delete/**id**. **Attention, vous devez remplacer le mot *id* par la bonne valeur correspondante !**.
+Pour supprimer une voiture via notre mini API c'est simple. Il suffit aller sur cette URL avec le bon **id** http://127.0.0.1:8000/cars/delete/id. **Attention, vous devez remplacer le mot *id* par la bonne valeur correspondante !**.
 
 Plus haut, je vous ai expliqué que l'id permet de sélectionner une voiture sans ambigüité. Et bien c'est utile en suppression.
 
