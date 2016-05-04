@@ -108,6 +108,8 @@ Pour supprimer une voiture via notre mini API c'est simple. Il suffit aller sur 
 
 Plus haut, je vous ai expliqué que l'id permet de sélectionner une voiture sans ambigüité. Et bien c'est utile en suppression.
 
+> Si jamais vous avez supprimer toutes les voitures, vous pouvez les remettre en ouvrant ce lien dans un nouvel onglet (ou nouvelle fenêtre)  : [http://127.0.0.1:8000/load-cars-fixtures](http://127.0.0.1:8000/load-cars-fixtures)
+
 ### Ajouter une voiture
 Le loueur a des nouvelles voitures qui rentrent et aimerait les ajouter.
 
