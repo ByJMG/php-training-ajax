@@ -97,6 +97,8 @@ Afin de récupérer la liste des voitures il faut aller à l'adresse [http://127
 
 C'est la liste de voitures sous forme JSON avec les propriétés pour chaque voiture et leur valeur. À vous de reprendre les données de ce JSON afin de les mettre en forme.
 
+> Il se peut que sous Chrome vous ayez ce message d'erreur *XMLHttpRequest cannot load (...) Origin http://127.0.0.1:8000/cars is not allowed by Access-Control-Allow-Origin*. Cela est dû à un paramètre de sécurité de Chrome. Pour pouvoir tester votre application je vous invite à installer l'extension [Allow-Control-Allow-Origin:*](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?utm_source=chrome-ntp-icon) qui enlèvera le blocage. *N'oubliez pas de désactiver cette fonctionnalité lorsque vous avez fini de travailler*
+
 ### Supprimer une voiture
 Imaginons qu'une voiture n'existe plus, il va falloir la supprimer de la liste.
 
